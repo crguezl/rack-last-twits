@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+	      	<html>
+	      	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	        	<title>Rack::Response</title>
+	        	<body>
+	          		<h1>
+	             		Bienvenido a nuestra aplicación que muestra sus últimos Tweets 
+	             	</h1>
+	             	<pre>
+	             		<form action="/" method="post">
+	               			Introduzca su nombre en Twitter: <input type="text" name="firstname"  value="" autofocus><br>
+	               			Su último Tweet: <%= @ultimo_t %>
+
+	               			Desea ver más. ¿Cuántos Tweets desea ver? : <input type="text" name="n" value="1"><br>
+	               			<input type="submit" value="Submit" >
+	             		</form>
+	             		
+						
+	             		Los úlimos Tweets :
+	             		<% @todo_tweet.each do |i| %> 
+							<%= i %><br>
+						<% end %>)
+						
+						 
+	                </pre>
+	        	</body>
+	      </html>
