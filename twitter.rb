@@ -32,8 +32,7 @@ class Twitts
 		number = req["n"] if req["n"]
 		
 		ultimos_t = Twitter.user_timeline(name,{:count=>number.to_i}) 
-		size = ultimos_t.length.to_i - 1 
-		i = 0
+
 
 #cache borrar
 	    res.write <<-"EOS"
@@ -56,10 +55,8 @@ class Twitts
 	             		
 						
 	             		Los úlimos Tweets 
-
-				   		for i in (0..size)
-	  						#{ultimos_t[i].text}
-						end 
+						#{ultimos_t.map{ |i| i.text }}
+						 
 	                </pre>
 	        	</body>
 	      </html>
