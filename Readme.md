@@ -11,16 +11,16 @@ Práctica 2:
 2. Instalación
 --------------
 
-	..2.1 Instalaremos las gemas necesarias: bundle install
-	..2.2 Configuraremos el fichero configure.rb siguiendo las directrices del fichero configure.rb.example
+	2.1 Instalaremos las gemas necesarias: bundle install
+	2.2 Configuraremos el fichero configure.rb siguiendo las directrices del fichero configure.rb.example
 
 3. Ejecución
 ------------
 
 Podemos ejecutarlo de dos formas:
 
-	..3.1
-	..3.2
+	3.1 ruby twitter.rb
+	3.2 rake
 
 4.Desarrollador
 ---------------
