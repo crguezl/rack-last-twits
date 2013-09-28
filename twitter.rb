@@ -32,7 +32,7 @@ class Twitts
 
 	    @name = (req["firstname"] && req["firstname"] != '' && Twitter.user?(req["firstname"]) == true ) ? req["firstname"] : 'error'
 
-		@number = (req["n"] && req["n"].to_i>1 ) ? req["n"].to_i : 1
+		@number = (req["n"] && req["n"].is_an_integer == true &&req["n"].to_i>1 ) ? req["n"].to_i : 1
 		if @name != '' or @name != 'error'
 			ultimos_t = Twitter.user_timeline(@name,{:count=>@number.to_i})
 			@todo_tweet =(@todo_tweet && @todo_tweet != '') ? ultimos_t.map{ |i| i.text} : ''
