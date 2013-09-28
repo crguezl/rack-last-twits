@@ -10,7 +10,7 @@
 	 		Bienvenido a nuestra aplicación que muestra sus últimos Tweets 
 	 	</div>
 	 	
-	 	<div id="re10">
+	 	<div id="re1">
 		 	<form action="/" method="post">
 		   		<p>Introduzca su nombre en Twitter: </p><input type="text" name="firstname"  value="" autofocus>
 		   		<p>Desea ver más. ¿Cuántos Tweets desea ver? : </p><input type="text" name="n" value="1">
@@ -19,15 +19,23 @@
 	 	</div>
  		<div id="re">
 			<div id="derecha">
-				<p> Usuario <%= @name %></p>
+				<% if @name == ''%>
+					<p id="warning"> No se ha introducido usuario o es incorrecto </p>
+				<%else%>
+					<p> Usuario <%= @name %></p>
+				<%end %>
+					
+
 			</div>
 			<div id="izquierda">
-				<p>Sus úlimos <%= @number %> Tweets :</p>
-				<ol id="col">
-				<% @todo_tweet.each do |i| %> 
-					<li><%= i %><br></li>
-				<% end %>
-				</ol>
+				<% if @name != ''%>
+					<p>Sus úlimos <%= @number %> Tweets :</p>
+					<ol id="col">
+						<% @todo_tweet.each do |i| %> 
+							<li><%= i %><br></li>
+						<% end %>
+					</ol>
+				<%end%>
 			</div>
 		</div>
 		

@@ -10,13 +10,11 @@ require 'erb'
 
 class Twitts
 
-	puts "#{@name}"
+	
 	def initialize
 		@todo_tweet = []
 		@name = ''
-		@number = 0
-		@fallo = ''
-		puts "#{@name}"
+		@number = 0		
 	end
 
 	def erb(template)
@@ -27,19 +25,18 @@ class Twitts
 	def call env
 	    req = Rack::Request.new(env)
 	    
+	    @todo_tweet = []
 	    binding.pry if ARGV[0]
-
-
-	    @name = (req["firstname"] && req["firstname"] != '' && Twitter.user?(req["firstname"]) == true ) ? req["firstname"] : 'error'
+	   
+	    @name = (req["firstname"] && req["firstname"] != '' && Twitter.user?(req["firstname"]) == true ) ? req["firstname"] : ''
 
 		@number = (req["n"] && req["n"].to_i>1 ) ? req["n"].to_i : 1
-		if @name != '' or @name != 'error'
+		puts "#{@name}"
+		
+		if @name == req["firstname"]
+			puts "#{@todo_tweet}"
 			ultimos_t = Twitter.user_timeline(@name,{:count=>@number.to_i})
-			@todo_tweet =(@todo_tweet && @todo_tweet != '') ? ultimos_t.map{ |i| i.text} : ''
-		elsif @name == 'error'
-			@fallo = 'No existe ese usuario'
-		elsif @name == ''
-			@fallo = 'Inserte un usuario'
+			@todo_tweet =(@todo_tweet && @todo_tweet != '') ? ultimos_t.map{ |i| i.text} : ''					
 		end
 
 		Rack::Response.new(erb('twitter.html.erb'))
