@@ -44,9 +44,9 @@ end
 
 if $0 == __FILE__
 	Rack::Server.start(
-   # 	:app => Rack::ShowExceptions.new(
-  #          		Rack::Lint.new(
- #               		Rack::Twitts.new)), 
+# 		:app => Rack::ShowExceptions.new(
+#        	Rack::Lint.new(
+#           	Rack::Twitts.new)), 
 		:app => Twitts.new,
 	    :Port => 9393,
 	    :server => 'thin'
