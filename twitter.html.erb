@@ -1,27 +1,35 @@
 <!DOCTYPE HTML>
-	      	<html>
-	      	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	        	<title>Rack::Response</title>
-	        	<body>
-	          		<h1>
-	             		Bienvenido a nuestra aplicación que muestra sus últimos Tweets 
-	             	</h1>
-	             	<pre>
-	             		<form action="/" method="post">
-	               			Introduzca su nombre en Twitter: <input type="text" name="firstname"  value="" autofocus><br>
-	               			Su último Tweet: <%= @ultimo_t %>
-
-	               			Desea ver más. ¿Cuántos Tweets desea ver? : <input type="text" name="n" value="1"><br>
-	               			<input type="submit" value="Submit" >
-	             		</form>
-	             		
-						
-	             		Los úlimos Tweets :
-	             		<% @todo_tweet.each do |i| %> 
-							<%= i %><br>
-						<% end %>)
-						
-						 
-	                </pre>
-	        	</body>
-	      </html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="stylesheet" type="text/css" href="twitter.css"> 
+		<title>Rack::Response</title>
+	</head>
+	<body>
+		<div id="Cabecera">
+	 		Bienvenido a nuestra aplicación que muestra sus últimos Tweets 
+	 	</div>
+	 	
+	 	<div id="re10">
+		 	<form action="/" method="post">
+		   		<p>Introduzca su nombre en Twitter: </p><input type="text" name="firstname"  value="" autofocus>
+		   		<p>Desea ver más. ¿Cuántos Tweets desea ver? : </p><input type="text" name="n" value="1">
+		   		<input  type="submit" value="Submit" >
+		 	</form>
+	 	</div>
+ 		<div id="re">
+			<div id="derecha">
+				<p> Usuario <%= @name %></p>
+			</div>
+			<div id="izquierda">
+				<p>Sus úlimos <%= @number %> Tweets :</p>
+				<ol id="col">
+				<% @todo_tweet.each do |i| %> 
+					<li><%= i %><br></li>
+				<% end %>
+				</ol>
+			</div>
+		</div>
+		
+	</body>
+</html>

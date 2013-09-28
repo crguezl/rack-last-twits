@@ -7,74 +7,53 @@ require 'thin'
 require 'erb'
 
 
+
 class Twitts
 
-	puts "#{name}"
+	puts "#{@name}"
+	def initialize
+		@todo_tweet = []
+		@name = ''
+		@number = 0
+		@fallo = ''
+		puts "#{@name}"
+	end
 
+	def erb(template)
+  		template_file = File.open("twitter.html.erb", 'r')
+  		ERB.new(File.read(template_file)).result(binding)
+	end
+	
 	def call env
 	    req = Rack::Request.new(env)
-	    res = Rack::Response.new 
-	   
+	    
 	    binding.pry if ARGV[0]
-	    res['Content-Type'] = 'text/html'
-
-	    
-	    name = (req["firstname"] && req["firstname"] != '') ? req["firstname"] : ''
-
-	    puts req["firstname"]
-	    ultimo_t = Twitter.user_timeline(name).first.text 
-	     
-
-	    
-	    puts "#{ultimo_t}"
-	    	
-		 	 
-		number = req["n"] if req["n"]
-		
-		ultimos_t = Twitter.user_timeline(name,{:count=>number.to_i}) 
 
 
-#cache borrar
-	    res.write <<-"EOS"
-	      	<!DOCTYPE HTML>
-	      	<html>
-	      	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	        	<title>Rack::Response</title>
-	        	<body>
-	          		<h1>
-	             		Bienvenido a nuestra aplicación que muestra sus últimos Tweets 
-	             	</h1>
-	             	<pre>
-	             		<form action="/" method="post">
-	               			Introduzca su nombre en Twitter: <input type="text" name="firstname"  value="" autofocus><br>
-	               			Su último Tweet: #{ultimo_t}
+	    @name = (req["firstname"] && req["firstname"] != '' && Twitter.user?(req["firstname"]) == true ) ? req["firstname"] : 'error'
 
-	               			Desea ver más. ¿Cuántos Tweets desea ver? : <input type="text" name="n" value="1"><br>
-	               			<input type="submit" value="Submit" >
-	             		</form>
-	             		
-						
-	             		Los úlimos Tweets 
-						#{ultimos_t.map{ |i| i.text }}
-						 
-	                </pre>
-	        	</body>
-	      </html>
-	    EOS
-	    res.finish
+		@number = (req["n"] && req["n"].to_i>1 ) ? req["n"].to_i : 1
+		if @name != '' or @name != 'error'
+			ultimos_t = Twitter.user_timeline(@name,{:count=>@number.to_i})
+			@todo_tweet =(@todo_tweet && @todo_tweet != '') ? ultimos_t.map{ |i| i.text} : ''
+		elsif @name == 'error'
+			@fallo = 'No existe ese usuario'
+		elsif @name == ''
+			@fallo = 'Inserte un usuario'
+		end
 
+		Rack::Response.new(erb('twitter.html.erb'))
 	end
+
 end
 
 if $0 == __FILE__
-#  	require 'rack'
-#  	require 'rack/showexceptions'
 	Rack::Server.start(
-#    	:app => Rack::ShowExceptions.new(
-#            		Rack::Lint.new(
-#                		Rack::Twitts.new)), 
+   # 	:app => Rack::ShowExceptions.new(
+  #          		Rack::Lint.new(
+ #               		Rack::Twitts.new)), 
 		:app => Twitts.new,
-	    :Port => 9292,
+	    :Port => 9393,
 	    :server => 'thin'
   	)
 end
