@@ -6,8 +6,6 @@ require 'pry-debugger'
 require 'thin'
 require 'erb'
 
-
-
 class Twitts
 
 	
