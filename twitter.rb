@@ -29,12 +29,12 @@ class Twitts
 	    @name = (req["firstname"] && req["firstname"] != '' && Twitter.user?(req["firstname"]) == true ) ? req["firstname"] : ''
 
 		@number = (req["n"] && req["n"].to_i>1 ) ? req["n"].to_i : 1
-		puts "#{@name}"
+		puts "#{req["n"]}"
 		
 		if @name == req["firstname"]
 			puts "#{@todo_tweet}"
 			ultimos_t = Twitter.user_timeline(@name,{:count=>@number.to_i})
-			@todo_tweet =(@todo_tweet && @todo_tweet != '') ? ultimos_t.map{ |i| i.text} : ''					
+			@todo_tweet =(@todo_tweet && @todo_tweet != '') ? ultimos_t.map{ |i| i.text} : ''				
 		end
 
 		Rack::Response.new(erb('twitter.html.erb'))

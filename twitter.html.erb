@@ -88,12 +88,24 @@
 			<%end %>
 				
 			<% if @name != ''%>
-				<p>Sus úlimos <%= @number %> Tweets :</p>
-				<ol>
-					<% @todo_tweet.each do |i| %> 
-						<li id="col"><%= i %><br></li>
-					<% end %>
-				</ol>
+				<%if @todo_tweet.length < @number %>
+					<p id="warning">Sorry! El usuario tiene solo tiene <%= @todo_tweet.length %> tweets visibles de <%= @number %> 
+					o tiene menos de <%= @number%> Tweets</p>
+					<p>Sus úlimos <%= @todo_tweet.length %> Tweets :</p>
+					<ol>
+						<% @todo_tweet.each do |i| %> 
+							<li id="col"><%= i %><br></li>
+						<% end %>
+					</ol>
+
+				<%else%>
+					<p>Sus úlimos <%= @number %> Tweets :</p>
+					<ol>
+						<% @todo_tweet.each do |i| %> 
+							<li id="col"><%= i %><br></li>
+						<% end %>
+					</ol>
+				<%end%>
 			<%end%>
 		</div>	
 	</body>
