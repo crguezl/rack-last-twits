@@ -1,3 +1,4 @@
+<center>![](https://lh3.googleusercontent.com/-uRklc0F6LiE/TYV_WJhhVZI/AAAAAAAAAGQ/HovceRcuUxA/s1600/twitter.png)</center>
 Práctica 2:
 ===========
  Accediendo a Twitter y Mostrando los últimos twitts en una página
