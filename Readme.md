@@ -2,7 +2,7 @@
 <center>![](https://lh3.googleusercontent.com/-uRklc0F6LiE/TYV_WJhhVZI/AAAAAAAAAGQ/HovceRcuUxA/s1600/twitter.png)</center>
 
 
-Práctica 2:
+Sistemas y Tecnologías Web. Ejemplo de OAuth, Twitter, Rest y Rack
 ===========
  Accediendo a Twitter y Mostrando los últimos twitts en una página
 
