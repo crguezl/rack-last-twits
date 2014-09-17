@@ -2,7 +2,6 @@
 require 'twitter'
 require 'sinatra'
 
-
 require './configure'
 
 get '/' do
