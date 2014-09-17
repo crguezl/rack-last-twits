@@ -24,10 +24,5 @@ Práctica 2:
 Podemos ejecutarlo de dos formas:
 
 	3.1 ruby twitter.rb
-	3.2 rake
-	3.3 Iremos a 'http://localhost:9393/' para poder usar la aplicación
+	3.2 Iremos a 'http://localhost:9393/' para poder usar la aplicación
 
-4.Desarrollador
----------------
-
-	Ángela Hdez D.
