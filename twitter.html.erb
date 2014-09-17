@@ -70,7 +70,7 @@
 	</head>
 	<body>
 		<div id="cabecera">
-	 			<p><img src="https://si0.twimg.com/profile_images/1774233686/twitter_bird.png" WIDTH=100 HEIGHT=100 />
+	 			<p><img src="http://img1.wikia.nocookie.net/__cb20110512040338/kimpossible/images/thumb/1/11/Twitter_bird_icon.png/480px-Twitter_bird_icon.png" WIDTH=100 HEIGHT=100 />
 	 			<b>Bienvenido a nuestra aplicación que muestra sus últimos Tweets</b></p>
 	 	</div>
 	 	
@@ -95,14 +95,14 @@
 				<%elsif @todo_tweet.length < @number %>
 					<p id="warning">Sorry! El usuario tiene solo tiene <%= @todo_tweet.length %> tweets visibles de <%= @number %> 
 					o tiene menos de <%= @number%> Tweets</p>
-					<p>Sus úlimos <%= @todo_tweet.length %> Tweets :</p>
+					<p>Sus últimos <%= @todo_tweet.length %> Tweets :</p>
 					<ol>
 						<% @todo_tweet.each do |i| %> 
 							<li id="col"><%= i %><br></li>
 						<% end %>
 					</ol>
 				<%else%>
-					<p>Sus úlimos <%= @number %> Tweets :</p>
+					<p>Sus últimos <%= @number %> Tweets :</p>
 					<ol>
 						<% @todo_tweet.each do |i| %> 
 							<li id="col"><%= i %><br></li>
