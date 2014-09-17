@@ -7,19 +7,19 @@ Sistemas y Tecnologías Web. Ejemplo de OAuth, Twitter, Rest y Rack
  Accediendo a Twitter y Mostrando los últimos twitts en una página
 
 
-1. Objetivo
+Objetivo
 -----------
 
 Accedemos a Twitter en una aplicación Rack que muestre en una página los últimos twitts de una lista de usuarios obtenidos desde un formulario.
 
-2. Instalación
+Instalación
 --------------
 
-2.1 Instalaremos las gemas necesarias: bundle install
+2.1 Instalaremos las gemas necesarias: `bundle install`
 2.2 Configuraremos el fichero `configure.rb` siguiendo las directrices del fichero `configure.rb.example`
 
 
-3. Ejecución
+Ejecución
 ------------
 
 Podemos ejecutarlo de dos formas:
