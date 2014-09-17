@@ -2,7 +2,7 @@
 <center>![](https://lh3.googleusercontent.com/-uRklc0F6LiE/TYV_WJhhVZI/AAAAAAAAAGQ/HovceRcuUxA/s1600/twitter.png)</center>
 
 
-Sistemas y Tecnologías Web. Ejemplo de OAuth, Twitter, Rest y Rack
+Sistemas y Tecnologías Web. Ejemplo de OAuth, Twitter, Rest y Sinatra
 ===========
  Accediendo a Twitter y Mostrando los últimos twitts en una página
 
@@ -10,7 +10,7 @@ Sistemas y Tecnologías Web. Ejemplo de OAuth, Twitter, Rest y Rack
 Objetivo
 -----------
 
-Accedemos a Twitter en una aplicación Rack que muestre en una página los últimos twitts de una lista de usuarios obtenidos desde un formulario.
+Accedemos a Twitter en una aplicación Sinatra que muestre en una página los últimos twitts de una lista de usuarios obtenidos desde un formulario.
 
 Instalación
 --------------
@@ -22,8 +22,8 @@ Instalación
 Ejecución
 ------------
 
-Podemos ejecutarlo de dos formas:
+Podemos ejecutarlo así:
 
 1. `ruby twitter.rb`
-2. Iremos a [http://localhost:9393/](http://localhost:9393/) para poder usar la aplicación
+2. Iremos a [http://localhost:4567/](http://localhost:4567/) para poder usar la aplicación
 
